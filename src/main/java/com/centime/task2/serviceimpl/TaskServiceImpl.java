@@ -39,8 +39,8 @@ public class TaskServiceImpl implements TaskService {
     }
     @Override
     @LogMethodParam
-    public void saveTask(Task task) {
-    taskRepository.save(task);
+    public Task saveTask(Task task) {
+    return taskRepository.save(task);
     }
     @Override
     @LogMethodParam
@@ -77,5 +77,9 @@ public class TaskServiceImpl implements TaskService {
         }
         return listTaskNode;
 
+    }
+
+    public void deleteTask(Task task){
+        taskRepository.delete(task);
     }
 }
